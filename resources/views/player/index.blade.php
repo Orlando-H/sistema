@@ -1,19 +1,17 @@
 @extends('layouts.app')
 @section('content')
-<div class="px-4">
+<div class="px-4 d-flex gap-5">
 
-@if(Session::has('mensaje'))
+<div class="col-6">
+    @if(Session::has('mensaje'))
 <div class="alert alert-success alert-dismissible" role="alert">
     {{ Session::get('mensaje') }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
-
-<div class="mb-3">
-    <a href="{{ url('player/create') }}" class ="btn btn-success">Registrar nuevo jugador</a>
-</div>
-
-<div class="col-6">
+    <div class="mb-3">
+        <a href="{{ url('player/create') }}" class ="btn btn-success">Registrar nuevo jugador</a>
+    </div>
     <table class="table table-light">
         <thead class="thead-light">
             <tr>
@@ -47,7 +45,6 @@
                 <img class = "img-thumbnail img-fluid" src="{{ asset('storage').'/'.$player->image }}" width ="100px" alt="">
                 </td>
                 <td>
-                    
                 
                 <a href="{{ url('/player/'.$player->id.'/edit') }}" class ="btn btn-warning">
                     Editar  
@@ -58,16 +55,25 @@
                     @csrf
                     {{ method_field('DELETE') }}
                     <input type="submit" onclick="return confirm('¿Quieres borrar?')" value ="Borrar" class = "btn btn-danger">    
-    
                 </form>
             
             </tr>
             @endforeach
         </tbody>
-        {!! $players->links() !!}
     </table>
-    <div class="col-6">
-
+    {!! $players->links() !!}
+</div>
+<div class="col-4 ">
+    <!-- IMAGEN DE FONDO -->
+    <div class=" z-0">
+        <img src="{{ asset('storage/uploads/fondo.png') }}" class="img-fluid" alt="">
+    </div>
+    <!-- circulos de las posiciones -->
+    <div class="d-flex justify-content-center z-10">
+        <div class="position-circle rounded-circle bg-primary w-2">GK</div>
+        <div class="position-circle rounded-circle bg-success">DEF</div>
+        <div class="position-circle rounded-circle bg-warning">MED</div>
+        <div class="position-circle rounded-circle bg-danger">ST</div>
     </div>
 </div>
 </div>

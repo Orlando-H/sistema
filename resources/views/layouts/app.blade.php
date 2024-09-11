@@ -35,6 +35,8 @@
                         <a class="nav-link" href="{{ route('empleado.index') }}">{{ __('Empleados') }}</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('player.index') }}">{{ __('Jugadores') }}</a>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
