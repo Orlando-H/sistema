@@ -49,19 +49,14 @@ class EmpleadoController extends Controller
 
         $this->validate($request, $campos, $mensaje);
 
-
-
         //$datosEmpleado = request()->all();
         $datosEmpleado = request()->except('_token');
 
         if($request->hasFile('foto')){
-            $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
+            $datosEmpleado['foto']=$request->file('foto')->store('uploads','storage');
         }
 
-
         Empleado::insert($datosEmpleado);
-
-
 
         //return response()->json($datosEmpleado);
         return redirect('empleado')->with('mensaje','Empleado agregado con éxito');

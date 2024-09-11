@@ -14,11 +14,11 @@
 
 
 
-<a href="{{ url('empleado/create') }}" class ="btn btn-success">Registrar nuevo empleado</a>
-<br>
-<br>
-<table class="table table-light">
+<div class="mb-3">
+    <a href="{{ url('empleado/create') }}" class ="btn btn-success">Registrar nuevo empleado</a>
+</div>
 
+<table class="table table-light">
     <thead class="thead-light">
         <tr>
             <th>#</th>
@@ -62,7 +62,6 @@
         </tr>
         @endforeach
     </tbody>
-
 </table>
 {!! $empleados->links() !!}
 </div>
