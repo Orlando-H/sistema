@@ -49,7 +49,7 @@
                     <form action="{{ url('/player/'.$player->id) }}" class="d-inline" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar" class="btn btn-danger">
+                        <input type="submit" onclick="return confirm('¿Quieres borrar?')" value="Borrar" class="btn btn-danger ">
                     </form>
                 </td>
             </tr>
@@ -59,34 +59,36 @@
     </table>
     {!! $players->links() !!}
 </div>
-<div class="col-4 position-relative" id="player-details">
+<div class="col-4 position-relative h-50">
     <!-- IMAGEN DE FONDO -->
     <div class="z-0">
-        <img src="{{ asset('storage/uploads/fondo.png') }}" class="img-fluid " alt="">
+        <img src="{{ asset('storage/uploads/fondo.png') }}" class="img-fluid" alt="">
     </div>
-    <!-- circulos de las posiciones -->
+    <!-- Posiciones de los jugadores -->
     <div class="d-flex gap-5 align-items-center flex-column-reverse h-100 w-100 justify-content-center z-0 top-0 start-0 position-absolute">
-        <div class="col-1 ">
-            <div class="position-circle rounded-circle bg-success p-1">GK</div>
+        <div class="col-1">
+            <div id="GK-position" class="position-circle rounded-circle bg-success p-1">GK</div>
         </div>
-        <div class="d-flex gap-4">
-            <div class="position-circle rounded-circle bg-success p-1">DF</div>
-            <div class="position-circle rounded-circle bg-success p-1">DF</div>
-            <div class="position-circle rounded-circle bg-success p-1">DF</div>
-            <div class="position-circle rounded-circle bg-success p-1">DF</div>
+        <div class="d-flex gap-5">
+            <div id="LB-position" class="position-circle rounded-circle bg-success p-1">LB</div>
+            <div id="LCB-position" class="position-circle rounded-circle bg-success p-1">LCB</div>
+            <div id="RCB-position" class="position-circle rounded-circle bg-success p-1">RCB</div>
+            <div id="RB-position" class="position-circle rounded-circle bg-success p-1">RB</div>
         </div>
-        <div class="d-flex gap-4">
-            <div class="position-circle rounded-circle bg-warning p-1">MD</div>
-            <div class="position-circle rounded-circle bg-warning p-1">MD</div>
-            <div class="position-circle rounded-circle bg-warning p-1">MD</div>
+        <div class="d-flex gap-5">
+            <div id="LCM-position" class="position-circle rounded-circle bg-warning p-1">LCM</div>
+            <div id="CM-position" class="position-circle rounded-circle bg-warning p-1">CM</div>
+            <div id="RCM-position" class="position-circle rounded-circle bg-warning p-1">RCM</div>
         </div>
-        <div class="d-flex gap-4">
-            <div class="position-circle rounded-circle bg-danger p-1">ST</div>
-            <div class="position-circle rounded-circle bg-danger p-1">ST</div>
-            <div class="position-circle rounded-circle bg-danger p-1">ST</div>
+        <div class="d-flex gap-5">
+            <div id="LW-position" class="position-circle rounded-circle bg-danger p-1">LW</div>
+            <div id="ST-position" class="position-circle rounded-circle bg-danger p-1">ST</div>
+            <div id="RW-position" class="position-circle rounded-circle bg-danger p-1">RW</div>
         </div>
     </div>
 </div>
+
+<div id="player-details"></div>
 </div>
 @endsection
 <script>
@@ -103,5 +105,10 @@
             <p><strong>Equipo:</strong> ${player.team}</p>
             <img src="{{ asset('storage') }}/${player.image}" class="img-thumbnail img-fluid" width="150px" alt="">
         `;
+
+        const positionCircle = document.getElementById(`${player.position}-position`);
+        if (positionCircle) {
+            positionCircle.innerHTML = `<img src="{{ asset('storage') }}/${player.image}" class="rounded-circle" style="width: 50px; height: 50px;" alt="${player.position}">`;
+        }
     }
 </script>

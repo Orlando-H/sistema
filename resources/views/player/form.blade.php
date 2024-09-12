@@ -66,8 +66,15 @@
 <!-- input de seleccion con los valores de las posiciones de un jugador -->
 <select class="form-select" name="position" id="position">
     <option value="GK" {{ isset($player-> position) && $player-> position == 'GK' ? 'selected' : '' }}>GK</option>
-    <option value="DF" {{ isset($player-> position) && $player-> position == 'DF' ? 'selected' : '' }}>DF</option>
+    <option value="LCB" {{ isset($player-> position) && $player-> position == 'LCB' ? 'selected' : '' }}>LCB</option>
+    <option value="RCB" {{ isset($player-> position) && $player-> position == 'RCB' ? 'selected' : '' }}>RCB</option>
+    <option value="LB" {{ isset($player-> position) && $player-> position == 'LB' ? 'selected' : '' }}>LB</option>
+    <option value="RB" {{ isset($player-> position) && $player-> position == 'RB' ? 'selected' : '' }}>RB</option>
+    <option value="LCM" {{ isset($player-> position) && $player-> position == 'LCM' ? 'selected' : '' }}>LCM</option>
+    <option value="RCM" {{ isset($player-> position) && $player-> position == 'RCM' ? 'selected' : '' }}>RCM</option>
     <option value="CM" {{ isset($player-> position) && $player-> position == 'CM' ? 'selected' : '' }}>CM</option>
+    <option value="RW" {{ isset($player-> position) && $player-> position == 'RW' ? 'selected' : '' }}>RW</option>
+    <option value="LW" {{ isset($player-> position) && $player-> position == 'LW' ? 'selected' : '' }}>LW</option>
     <option value="ST" {{ isset($player-> position) && $player-> position == 'ST' ? 'selected' : '' }}>ST</option>
 </select>
 <br>
