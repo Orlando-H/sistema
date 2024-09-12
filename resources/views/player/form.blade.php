@@ -65,10 +65,10 @@
 <label for="position">Position</label>
 <!-- input de seleccion con los valores de las posiciones de un jugador -->
 <select class="form-select" name="position" id="position">
-    <option value="Portero" {{ isset($player-> position) && $player-> position == 'GK' ? 'selected' : '' }}>Portero</option>
-    <option value="Defensa" {{ isset($player-> position) && $player-> position == 'DF' ? 'selected' : '' }}>Defensa</option>
-    <option value="Centrocampista" {{ isset($player-> position) && $player-> position == 'CM' ? 'selected' : '' }}>Centrocampista</option>
-    <option value="Delantero" {{ isset($player-> position) && $player-> position == 'ST' ? 'selected' : '' }}>Delantero</option>
+    <option value="GK" {{ isset($player-> position) && $player-> position == 'GK' ? 'selected' : '' }}>GK</option>
+    <option value="DF" {{ isset($player-> position) && $player-> position == 'DF' ? 'selected' : '' }}>DF</option>
+    <option value="CM" {{ isset($player-> position) && $player-> position == 'CM' ? 'selected' : '' }}>CM</option>
+    <option value="ST" {{ isset($player-> position) && $player-> position == 'ST' ? 'selected' : '' }}>ST</option>
 </select>
 <br>
 </div>
