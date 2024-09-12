@@ -22,5 +22,5 @@ Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 Route::resource('player', PlayerController::class)->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', [EmpleadoController::class, 'index'])->name('home');
+    Route::get('/', [PlayerController::class, 'index'])->name('home');
 });
